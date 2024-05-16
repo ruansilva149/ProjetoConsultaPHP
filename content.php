@@ -1,74 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Consultas Médicas</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Médicos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Serviços</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Pacientes
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Agendar Consulta</a></li>
-            <li><a class="dropdown-item" href="#">Histórico de Consultas</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sobre</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+<form class="dropdown-menu p-4">
+  <div class="mb-3">
+    <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+  </div>
+  <div class="mb-3">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+      <label class="form-check-label" for="dropdownCheck2">
+        Remember me
+      </label>
     </div>
   </div>
-</nav>
+  <button type="submit" class="btn btn-success">Sign in</button>
+</form>
+</div>
+</form>
+</div>
+</div>
 
 
-<?php //inicio formulario>?>
+
+<?php //inicio formulario>
+?>
 <form method="post" action="acao.php">
-<h2>Agendar Consulta</h2>
+  <h2>Agendar Consulta</h2>
   <nav class="navbar bg-body-tertiary">
-      <div class="input-group">
-        <span class="input-group-text" id="basic-addon1"></span>
-        <input type="text" name="nome" class="form-control" placeholder="Digite seu nome completo" aria-label="Nome" aria-describedby="basic-addon1">
-      </div>
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1"></span>
+      <input type="text" name="nome" class="form-control" placeholder="Digite seu nome completo" aria-label="Nome" aria-describedby="basic-addon1">
+    </div>
   </nav>
 
   <nav class="navbar bg-body-tertiary">
-      <div class="input-group">
-        <span class="input-group-text" id="basic-addon1"></span>
-        <input type="email" name="email" class="form-control" placeholder="Digite seu e-mail" aria-label="E-mail" aria-describedby="basic-addon1">
-      </div>
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1"></span>
+      <input type="email" name="email" class="form-control" placeholder="Digite seu e-mail" aria-label="E-mail" aria-describedby="basic-addon1">
+    </div>
   </nav>
 
   <nav class="navbar bg-body-tertiary">
-      <div class="input-group">
-        <span class="input-group-text" id="basic-addon1"></span>
-        <input type="number" name="telefone" class="form-control" placeholder="Digite seu telefone" aria-label="Telefone" aria-describedby="basic-addon1">
-      </div>
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1"></span>
+      <input type="number" name="telefone" class="form-control" placeholder="Digite seu telefone" aria-label="Telefone" aria-describedby="basic-addon1">
+    </div>
   </nav>
 
 
   <nav class="bg-body-tertiary">
-      <div class="enviar">
-        <span class="input-group-text" id="basic-addon1"></span>
-        <input type="submit" value="Agendar Consulta" class="form-control bg-dark border-bottom border-body" data-bs-theme="dark" aria-describedby="basic-addon1" >
-      </div>
+    <div class="enviar">
+      <span class="input-group-text" id="basic-addon1"></span>
+      <input type="submit" value="Agendar Consulta" class="form-control bg-dark border-bottom border-body" data-bs-theme="dark" aria-describedby="basic-addon1">
+    </div>
   </nav>
 </form>
-<?php //fim formulario>?>
+<?php //fim formulario>
+?>
 
 
 <div class="card" style="width: 18rem;">
@@ -77,6 +67,3 @@
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
 </div>
-
-
-
