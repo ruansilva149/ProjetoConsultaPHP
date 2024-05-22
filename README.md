@@ -1,4 +1,4 @@
-Objetivo é fazer um site para consultas.
+Objetivo é fazer um site como um template voltado para instituições da área da saúde, tendo como principal função a administração das consultas marcadas e que irão ser marcadas.
 
 Funcionalidades:
 - login: usuário e senha/ cadastro funcional

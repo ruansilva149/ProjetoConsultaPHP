@@ -17,15 +17,17 @@ require_once "header.php"
       <div class="form-check">
         <input type="checkbox" class="form-check-input" id="dropdownCheck">
         <label class="form-check-label" for="dropdownCheck">
-          Remember me
+          Lembrar-me
         </label>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+<div class="text-center">
+<button type="submit" class="btn btn-primary">Sign in</button>
   </form>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="#">New around here? Sign up</a>
+  <a class="dropdown-item" href="cadastro.php">Novo por aqui? Registre-se</a>
   <a class="dropdown-item" href="#">Forgot password?</a>
+  </div>
 
 
 <?php
