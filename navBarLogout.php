@@ -29,11 +29,10 @@
       </ul>
       <?php //menu?>
       <div class="dropdown">
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+  <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
     Menu
   </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="login.php">Fazer Login</li>
-    <li></li>
+  <ul class="dropdown-menu bg-danger">
+    <li><a class="dropdown-item" href="home.php">Logout</li>
   </ul>
   </nav>

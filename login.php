@@ -1,17 +1,19 @@
 <?php
 
-require_once "header.php"
-
+require_once "header.php";
+require_once "navBarLogin.php";
 ?>
 
+
+<div class="d-flex justify-content-center">
   <form class="px-4 py-3" method="POST" action="acao.php">
     <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" name="email" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+      <label for="exampleDropdownFormEmail1" class="form-label">Endereço de e-mail</label>
+      <input type="email" class="form-control" name="email" id="" placeholder="email@example.com">
     </div>
     <div class="mb-3">
       <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword1" placeholder="Password">
+      <input type="password" class="form-control" name="senha" id="" placeholder="Password">
     </div>
     <div class="mb-3">
       <div class="form-check">
@@ -28,7 +30,7 @@ require_once "header.php"
   <a class="dropdown-item" href="cadastro.php">Novo por aqui? Registre-se</a>
   <a class="dropdown-item" href="#">Forgot password?</a>
   </div>
-
+</div>
 
 <?php
 

@@ -2,6 +2,9 @@
   require_once "header.php";
 ?>
 
+<?php
+      require_once "navBarLogout.php";
+    ?>
 
 <?php //inicio formulario>
 ?>

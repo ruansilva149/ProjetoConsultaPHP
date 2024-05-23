@@ -3,8 +3,8 @@
 class Dao{
 
 private $dsn = "mysql:host=localhost;dbname=phpdb";
-private $username = "root";
-private $password = "";
+private $username = "grupo09";
+private $password = "php09";
 private $pdo;
 
 public function conectar(){
