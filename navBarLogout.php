@@ -33,6 +33,6 @@
     Menu
   </button>
   <ul class="dropdown-menu bg-danger">
-    <li><a class="dropdown-item" href="home.php">Logout</li>
+    <li><a class="dropdown-item" href="home.php">Logout</a></li>
   </ul>
   </nav>

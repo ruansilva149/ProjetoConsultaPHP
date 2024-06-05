@@ -33,6 +33,6 @@
     Menu
   </button>
   <ul class="dropdown-menu text-success">
-    <li><a class="dropdown-item" href="login.php">Login</li>
+    <li><a class="dropdown-item" href="login.php">Login</a></li>
   </ul>
   </nav>
