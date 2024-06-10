@@ -2,8 +2,8 @@
 
 class Dao{
 
-private $dsn = "mysql:host=localhost;dbname=phpdb";
-private $username = "grupo09";
+private $dsn = "mysql:host=192.168.8.10;dbname=grupo09php";
+private $username = "grupophp09";
 private $password = "php09";
 private $pdo;
 
@@ -12,9 +12,9 @@ public function conectar(){
 
 }
 
-public function insertLogin($email, $senha){
+public function insertLogin($usuario, $senha){
     try{
-        $stmt = $this->pdo->query("insert into login values (null, '$email', '$senha')");
+        $stmt = $this->pdo->query("insert into usuario values ('$nome', '$email', '$cpf', '$senha', '$Data_nasc', '$sexo')");
     } catch (PDOException $ex){
         echo "<pre>";
         echo $this->pdo->errorInfo()[2];
@@ -23,7 +23,7 @@ public function insertLogin($email, $senha){
 }
 
 public function listar(){
-    $stmt = $this->pdo->query("SELECT * FROM login");
+    $stmt = $this->pdo->query("SELECT * FROM usuario");
 while ($aluno = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo $aluno['usuario'] . " - " . $aluno['senha'] . "<br>";
 }
