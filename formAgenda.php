@@ -31,6 +31,20 @@
     </div>
   </nav>
 
+  <nav class="navbar bg-body-tertiary">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1"></span>
+      <input list="especialidade" name="especialidade" class="form-control" placeholder="Especialidade" aria-describedby="basic-addon1">
+
+      <datalist id="especialidade">
+        <option value="Clínico Geral">
+        <option value="Dermatologista">
+        <option value="Psicológo">
+        <option value="Dentista">
+        <option value="Urologista">
+      </datalist>
+    </div>
+  </nav>
 
   <nav class="bg-body-tertiary">
     <div class="enviar">

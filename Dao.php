@@ -12,9 +12,9 @@ public function conectar(){
 
 }
 
-public function insertLogin($usuario, $senha){
+public function insertLogin($email, $senha){
     try{
-        $stmt = $this->pdo->query("insert into login values (null, '$usuario', '$senha')");
+        $stmt = $this->pdo->query("insert into login values (null, '$email', '$senha')");
     } catch (PDOException $ex){
         echo "<pre>";
         echo $this->pdo->errorInfo()[2];

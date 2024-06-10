@@ -19,8 +19,10 @@ require_once "navBarLogin.php";
       <label for="exampleDropdownFormEmail1" class="form-label">Data de nascimento</label>
       <input type="date" class="form-control" name="datanasc" id="exampleDropdownFormEmail1" required placeholder="Informe sua data de nascimento">
     </div>
-
-    
+    <script>
+    var phoneInput = document.getElementByName('celular');
+        Inputmask("(99) 99999-9999").mask(phoneInput);
+        </script>
     <div class="mb-3">
       <label for="exampleDropdownFormEmail1" class="form-label">Celular</label>
       <input type="tel" class="form-control" name="celular" required id="exampleDropdownFormEmail1" placeholder="(__) _____-____">

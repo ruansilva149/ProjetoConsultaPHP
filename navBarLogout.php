@@ -20,7 +20,6 @@
             <li><a class="dropdown-item" href="formAgenda.php">Agendar Consulta</a></li>
             <li><a class="dropdown-item" href="#">Histórico de Consultas</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -33,6 +32,6 @@
     Menu
   </button>
   <ul class="dropdown-menu bg-danger">
-    <li><a class="dropdown-item" href="home.php">Logout</li>
+    <li><a class="dropdown-item" href="home.php">Logout</a></li>
   </ul>
   </nav>
