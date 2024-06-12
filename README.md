@@ -15,20 +15,20 @@ Funcionalidades:
 CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
-    email VARCHAR(25) UNIQUE,
-    cpf int (11) UNIQUE,
-    senha VARCHAR(20),
-    data_nascimento DATE,
-    sexo ENUM('M', 'F', 'Outro')
+    email VARCHAR(25) UNIQUE not null,
+    cpf int (11) UNIQUE not null,
+    celular int (11) not null,
+    data_nascimento DATE not null,
+    sexo ENUM('M', 'F', 'Outro' not null),
+    senha VARCHAR(20)not null,
 );
 
 CREATE TABLE consulta (
-    id_consulta INT PRIMARY KEY AUTO_INCREMENT,
-    data_hora DATETIME,
-    observacoes TEXT,
-    fk_usuario int,
-    FOREIGN KEY (fk_usuario) REFERENCES usuario(id_usuario)
-   
+    nome_consulta varchar(50) not null,
+    email_consulta varchar(25) not null,
+    celular_consulta varchar(11) not null,
+    data_hora DATETIME not null,
+    especialidade ENUM('Clínico Geral', 'Dermatologista', 'Psicológo', 'Dentista', 'Urologista') not null
 );
 
 

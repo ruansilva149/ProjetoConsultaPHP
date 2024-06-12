@@ -34,9 +34,18 @@
   <nav class="navbar bg-body-tertiary">
     <div class="input-group">
       <span class="input-group-text" id="basic-addon1"></span>
-      <input list="especialidade" name="especialidade" class="form-control" placeholder="Especialidade" aria-describedby="basic-addon1">
+      <input type="datetime-local" name="datahora" class="form-control" aria-label="datahora" aria-describedby="basic-addon1">
+    </div>
+  </nav>
 
-      <datalist id="especialidade">
+  <nav class="navbar bg-body-tertiary">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1"></span>
+
+      <input type="text" list="especialidadedl" id="especialidade" 
+ name="especialidade" class="form-control" placeholder="Especialidade" aria-describedby="basic-addon1">
+
+      <datalist id="especialidadedl">
         <option value="Clínico Geral">
         <option value="Dermatologista">
         <option value="Psicológo">
@@ -45,6 +54,27 @@
       </datalist>
     </div>
   </nav>
+
+<script>
+document.getElementById('especialidade').addEventListener('input', function() {
+    var input = this.value;
+    var options = document.getElementById('especialidadedl').getElementsByTagName('option');
+    var encontrado = false;
+    
+    for (var i = 0; i < options.length; i++) {
+        if (input === options[i].value) {
+            encontrado = true;
+            break;
+        }
+    }
+    
+    if (!encontrado) {
+        this.setCustomValidity('Por favor, escolha uma das opções da lista.');
+    } else {
+        this.setCustomValidity('');
+    }
+});
+</script>
 
   <nav class="bg-body-tertiary">
     <div class="enviar">

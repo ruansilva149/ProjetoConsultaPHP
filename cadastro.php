@@ -7,7 +7,7 @@ require_once "navBarLogin.php";
   <form class="px-4 py-3" method="POST" action="acao.php">
     <div class="mb-3">
       <label for="exampleDropdownFormEmail1" class="form-label">Nome Completo</label>
-      <input type="email" class="form-control" name="nome" id="exampleDropdownFormEmail1" placeholder="Digite aqui seu nome completo">
+      <input type="text" class="form-control" name="nome" id="exampleDropdownFormEmail1" placeholder="Digite aqui seu nome completo">
     </div>
 
     <div class="mb-3">
@@ -16,8 +16,8 @@ require_once "navBarLogin.php";
     </div>
 
     <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">Data de nascimento</label>
-      <input type="date" class="form-control" name="datanasc" id="exampleDropdownFormEmail1" required placeholder="Informe sua data de nascimento">
+      <label for="exampleDropdownFormEmail1" class="form-label">CPF</label>
+      <input type="date" class="form-control" name="cpf" id="exampleDropdownFormEmail1" required placeholder="Informe seu CPF">
     </div>
     <script>
     var phoneInput = document.getElementByName('celular');
@@ -42,6 +42,17 @@ require_once "navBarLogin.php";
     <div class="mb-3">
       <label for="exampleDropdownFormPassword1" class="form-label">Confirmar a senha</label>
       <input type="password" required class="form-control" name="confirmsenha" id="exampleDropdownFormPassword1" placeholder="Confirme sua senha">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleDropdownFormPassword1" class="form-label">Informe seu sexo</label>
+      <input list="sexo" name="sexo" class="form-control" placeholder="Sexo" aria-describedby="basic-addon1">
+
+      <datalist id="sexoid">
+        <option value="Masculino">
+        <option value="Feminino">
+        <option value="Outro">
+      </datalist>
     </div>
 
     </div>

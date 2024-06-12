@@ -12,9 +12,9 @@ public function conectar(){
 
 }
 
-public function insertLogin($usuario, $senha){
+public function insertUsuario($nome, $email, $cpf, $senha, $data_nasc, $sexo){
     try{
-        $stmt = $this->pdo->query("insert into usuario values ('$nome', '$email', '$cpf', '$senha', '$Data_nasc', '$sexo')");
+        $stmt = $this->pdo->query("insert into usuario values ('$nome', '$email', '$cpf', '$senha', '$data_nasc', '$sexo')");
     } catch (PDOException $ex){
         echo "<pre>";
         echo $this->pdo->errorInfo()[2];
@@ -27,6 +27,16 @@ public function listar(){
 while ($aluno = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo $aluno['usuario'] . " - " . $aluno['senha'] . "<br>";
 }
+}
+
+public function insertConsulta ($nome, $email, $celular, $datahora, $especialidade){
+    try{
+        $stmt = $this->pdo->query("insert into consulta (nome_consulta, email_consulta, celular_consulta, data_hora, especialidade) values ('$nome', '$email', '$celular', '$datahora', '$especialidade', )");
+    } catch (PDOException $ex){
+        echo "<pre>";
+        echo $this->pdo->errorInfo()[2];
+
+    }    
 }
 }
 
