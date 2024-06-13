@@ -4,6 +4,7 @@ require_once "header.php";
 require_once "navBarLogin.php";
 ?>
 
+
   <form class="px-4 py-3" method="POST" action="acao.php">
     <div class="mb-3">
       <label for="exampleDropdownFormEmail1" class="form-label">Nome Completo</label>
@@ -49,8 +50,8 @@ require_once "navBarLogin.php";
       <input list="sexo" name="sexo" class="form-control" placeholder="Sexo" aria-describedby="basic-addon1">
 
       <datalist id="sexoid">
-        <option value="Masculino">
-        <option value="Feminino">
+        <option value="M">
+        <option value="F">
         <option value="Outro">
       </datalist>
     </div>

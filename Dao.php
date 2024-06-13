@@ -27,8 +27,18 @@ public function insertUsuario($nome, $email, $cpf, $senha, $data_nasc, $sexo){
     }    
 }
 
+public function insertLogin($nome, $email, $cpf, $celular, $data_nasc, $sexo ,$senha){
+    try{
+        $stmt = $this->pdo->query("insert into usuario values ('$nome', '$email', '$cpf', '$celular',  '$data_nasc', '$sexo', '$senha')");
+    } catch (PDOException $ex){
+        echo "<pre>";
+        echo $this->pdo->errorInfo()[2];
+
+    }    
+}
+
 public function listar(){
-    $stmt = $this->pdo->query("SELECT * FROM usuario");
+    $stmt = $this->pdo->query("Select * from table consulta");
 while ($aluno = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo $aluno['usuario'] . " - " . $aluno['senha'] . "<br>";
 }

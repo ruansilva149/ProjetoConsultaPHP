@@ -31,3 +31,15 @@ require_once "Dao.php";
 require_once "footer.php";
 
 ?>
+<?php
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+    $celular = $_POST['celular'];
+    $data_nascimento = $_POST['data_nascimento'];
+    $sexo = $_POST['sexo'];
+    $senha = $_POST['senha'];
+
+    $dao = new Dao();
+    $dao->insertLogin($nome, $email, $cpf, $celular, $data_nascimento, $sexo, $senha);
+?>
