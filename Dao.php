@@ -2,12 +2,17 @@
 
 class Dao{
 
-private $dsn = "mysql:host=192.168.8.10;dbname=grupo09php";
-private $username = "grupophp09";
-private $password = "php09";
+// //private $dsn = "mysql:host=192.168.8.10;dbname=grupo09php";
+// private $username = "grupophp09";
+// private $password = "php09";
+// private $pdo;//
+
+private $dsn = "mysql:host=localhost;dbname=consultadb";
+private $username = "root";
+private $password = "";
 private $pdo;
 
-public function conectar(){
+public function __construct(){
     $this->pdo = new PDO($this->dsn, $this->username, $this->password);
 
 }
@@ -31,8 +36,10 @@ while ($aluno = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 public function insertConsulta ($nome, $email, $celular, $datahora, $especialidade){
     try{
-        $stmt = $this->pdo->query("insert into consulta (nome_consulta, email_consulta, celular_consulta, data_hora, especialidade) values ('$nome', '$email', '$celular', '$datahora', '$especialidade', )");
-    } catch (PDOException $ex){
+        $stmt = $this->pdo->query("insert into consulta values ('$nome', '$email', '$celular', '$datahora', '$especialidade')");
+        return $stmt;
+    } 
+    catch (PDOException $ex){
         echo "<pre>";
         echo $this->pdo->errorInfo()[2];
 

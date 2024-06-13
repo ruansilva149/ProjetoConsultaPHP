@@ -27,7 +27,7 @@
   <nav class="navbar bg-body-tertiary">
     <div class="input-group">
       <span class="input-group-text" id="basic-addon1"></span>
-      <input type="number" name="telefone" class="form-control" placeholder="Digite seu telefone" aria-label="Telefone" aria-describedby="basic-addon1">
+      <input type="number" name="celular" class="form-control" placeholder="Digite seu celular" aria-label="Celular" aria-describedby="basic-addon1">
     </div>
   </nav>
 
