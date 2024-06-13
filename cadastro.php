@@ -4,61 +4,97 @@ require_once "header.php";
 require_once "navBarLogin.php";
 ?>
 
-  <form class="px-4 py-3" method="POST" action="acao.php">
-    <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">Nome Completo</label>
-      <input type="text" class="form-control" name="nome" id="exampleDropdownFormEmail1" placeholder="Digite aqui seu nome completo">
-    </div>
+<form class="px-4 py-3" method="POST" action="acao.php" onsubmit="return validarFormulario()">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome Completo</label>
+    <input type="text" class="form-control" required name="nome" id="nome" placeholder="Digite aqui seu nome completo">
+  </div>
 
-    <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">E-mail</label>
-      <input type="email" class="form-control" name="email" id="exampleDropdownFormEmail1" required placeholder="Insira seu e-mail">
-    </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">E-mail</label>
+    <input type="email" class="form-control" name="email" id="email" required placeholder="Insira seu e-mail">
+  </div>
 
-    <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">CPF</label>
-      <input type="date" class="form-control" name="cpf" id="exampleDropdownFormEmail1" required placeholder="Informe seu CPF">
-    </div>
-    <script>
-    var phoneInput = document.getElementByName('celular');
-        Inputmask("(99) 99999-9999").mask(phoneInput);
-        </script>
-    <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">Celular</label>
-      <input type="tel" class="form-control" name="celular" required id="exampleDropdownFormEmail1" placeholder="(__) _____-____">
-    </div>
+  <div class="mb-3">
+    <label for="cpf" class="form-label">CPF</label>
+    <input type="text" class="form-control" name="cpf" id="cpf" required placeholder="Informe seu CPF" data-mask="000.000.000-00">
+  </div>
 
-    <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">Telefone</label>
-      <input type="number" class="form-control" name="telefone" required id="exampleDropdownFormEmail1" placeholder="(__) _____-____">
-    </div>
+  <div class="mb-3">
+    <label for="cel" class="form-label">Celular</label>
+    <input type="tel" class="form-control" name="celular" required id="cel" placeholder="(__) _____-____" data-mask="(00) 00000-0000">
+  </div>
 
+  <div class="mb-3">
+    <label for="senha" class="form-label">Senha</label>
+    <input type="password" required class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
+  </div>
 
-    <div class="mb-3">
-      <label for="exampleDropdownFormPassword1" class="form-label">Senha</label>
-      <input type="password" required class="form-control" name="senha" id="exampleDropdownFormPassword1" placeholder="Digite sua senha">
-    </div>
+  <div class="mb-3">
+    <label for="confirma_senha" class="form-label">Confirmar a senha</label>
+    <input type="password" required class="form-control" name="confirm_senha" id="confirma_senha" placeholder="Confirme sua senha">
+  </div>
 
-    <div class="mb-3">
-      <label for="exampleDropdownFormPassword1" class="form-label">Confirmar a senha</label>
-      <input type="password" required class="form-control" name="confirmsenha" id="exampleDropdownFormPassword1" placeholder="Confirme sua senha">
-    </div>
+  <div class="mb-3">
+    <label for="sexo" class="form-label">Informe seu sexo</label>
+    <input list="sexoid" name="sexo" class="form-control" id="sexo" placeholder="Sexo">
+    <datalist id="sexoid">
+      <option value="M">
+      <option value="F">
+      <option value="Outro">
+    </datalist>
+  </div>
 
-    <div class="mb-3">
-      <label for="exampleDropdownFormPassword1" class="form-label">Informe seu sexo</label>
-      <input list="sexo" name="sexo" class="form-control" placeholder="Sexo" aria-describedby="basic-addon1">
+  <p id="mensagem"></p>
 
-      <datalist id="sexoid">
-        <option value="Masculino">
-        <option value="Feminino">
-        <option value="Outro">
-      </datalist>
-    </div>
+  <button type="submit" class="btn btn-success">Registrar</button>
+</form>
 
-    </div>
-    <button type="submit" class="btn btn-success">Registrar</button>
-  </form>
+<script>
+  $(document).ready(function() {
+    $('#cpf').mask('000.000.000-00');
+    $('#cel').mask('(00) 00000-0000');
+  });
 
+  function validarFormulario() {
+    var senha = document.getElementById("senha").value;
+    var confirmacaoSenha = document.getElementById("confirma_senha").value;
+    var mensagem = document.getElementById("mensagem");
+
+    if (senha !== confirmacaoSenha) {
+      mensagem.innerText = "As senhas não são iguais.";
+      return false; 
+    }
+
+    if (senha.length < 8) {
+      mensagem.innerText = "A senha deve ter pelo menos 8 caracteres.";
+      return false; 
+    }
+
+    mensagem.innerText = "";
+    return true; 
+  
+  }
+
+  document.getElementById('sexo').addEventListener('input', function() {
+    var input = this.value;
+    var options = document.getElementById('sexoid').getElementsByTagName('option');
+    var encontrado = false;
+    
+    for (var i = 0; i < options.length; i++) {
+        if (input === options[i].value) {
+            encontrado = true;
+            break;
+        }
+    }
+    
+    if (!encontrado) {
+        this.setCustomValidity('Por favor, escolha uma das opções da lista.');
+    } else {
+        this.setCustomValidity('');
+    }
+});
+</script>
 
 <?php
 
