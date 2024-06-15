@@ -18,9 +18,8 @@ CREATE TABLE usuario (
     email VARCHAR(25) UNIQUE not null,
     cpf int (11) UNIQUE not null,
     celular int (11) not null,
-    data_nascimento DATE not null,
-    sexo ENUM('M', 'F', 'Outro' not null),
     senha VARCHAR(20)not null,
+    sexo ENUM('M', 'F', 'Outro' not null)
 );
 
 CREATE TABLE consulta (

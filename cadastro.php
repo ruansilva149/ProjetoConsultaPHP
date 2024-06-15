@@ -27,6 +27,16 @@ require_once "navBarLogin.php";
   </div>
 
   <div class="mb-3">
+    <label for="sexo" class="form-label">Informe seu sexo</label>
+    <input list="sexoid" name="sexo" class="form-control" id="sexo" placeholder="Sexo">
+    <datalist id="sexoid">
+      <option value="M">
+      <option value="F">
+      <option value="Outro">
+    </datalist>
+  </div>
+
+  <div class="mb-3">
     <label for="senha" class="form-label">Senha</label>
     <input type="password" required class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
   </div>
@@ -36,15 +46,6 @@ require_once "navBarLogin.php";
     <input type="password" required class="form-control" name="confirm_senha" id="confirma_senha" placeholder="Confirme sua senha">
   </div>
 
-  <div class="mb-3">
-    <label for="sexo" class="form-label">Informe seu sexo</label>
-    <input list="sexoid" name="sexo" class="form-control" id="sexo" placeholder="Sexo">
-    <datalist id="sexoid">
-      <option value="M">
-      <option value="F">
-      <option value="Outro">
-    </datalist>
-  </div>
 
   <p id="mensagem"></p>
 

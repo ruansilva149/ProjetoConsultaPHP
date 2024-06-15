@@ -3,6 +3,8 @@
 require_once "header.php";
 require_once "Dao.php";
 
+
+
 //if (isset($_POST['submit'])){
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -12,6 +14,18 @@ require_once "Dao.php";
 
     $dao = new Dao();
     $dao->insertConsulta($nome, $email, $celular, $datahora, $especialidade);
+
+
+    //cadastro    
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+    $celular = $_POST['celular'];
+    $sexo = $_POST['sexo'];
+    $senha = $_POST['senha'];
+
+    $dao = new Dao();
+    $dao->insertLogin($nome, $email, $cpf, $celular, $data_nascimento, $sexo, $senha);
 //}
 
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -31,7 +45,7 @@ require_once "Dao.php";
 require_once "footer.php";
 
 ?>
-<?php
+
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $cpf = $_POST['cpf'];
@@ -42,4 +56,3 @@ require_once "footer.php";
 
     $dao = new Dao();
     $dao->insertLogin($nome, $email, $cpf, $celular, $data_nascimento, $sexo, $senha);
-?>
