@@ -60,28 +60,32 @@ public function insertConsulta ($nome, $email, $celular, $datahora, $especialida
 // Função para validar as credenciais do usuário
 function validarCredenciais($email, $senha) {
     // Conexão com o banco de dados - substitua com suas credenciais de conexão
-    $dsn = 'mysql:host=localhost;dbname=seu_banco_de_dados';
-    $username = 'seu_usuario';
-    $password = 'sua_senha';
+    $dsn = 'mysql:host=localhost;dbname=consultadb';
+    $username = 'root';
+    $password = '';
 
     try {
         $pdo = new PDO($dsn, $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Preparar a consulta SQL para verificar as credenciais
-        $stmt = $pdo->prepare('SELECT id FROM usuarios WHERE email = :email AND senha = :senha');
+        $stmt = $pdo->prepare('SELECT id_usuario FROM usuario WHERE email = :email AND senha = :senha');
         $stmt->execute(array(
             ':email' => $email,
-            ':senha' => md5($senha) // Exemplo de senha criptografada, ajuste conforme sua lógica de criptografia
+            ':senha' => $senha // Sem criptografia
         ));
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Depuração: Verifique o resultado da consulta
+        var_dump($row); 
 
         if ($row) {
             // Se encontrar o usuário com as credenciais válidas
             return true;
         } else {
             // Se não encontrar o usuário ou as credenciais não forem válidas
+            echo 'Credenciais inválidas.';
             return false;
         }
     } catch (PDOException $e) {
