@@ -6,13 +6,13 @@ CREATE TABLE usuario (
     nome VARCHAR(50),
     email VARCHAR(25) UNIQUE not null,
     cpf VARCHAR (14) UNIQUE not null,
-    celular int (11) not null,
-    data_nasc date not null,
+    celular varchar (15) not null,
+    data_nasc date null,
 	sexo ENUM('M', 'F', 'Outro') not null,
     senha VARCHAR(20)not null
 );
 
-drop table CONSULTA;
+drop table usuario;
 
 CREATE TABLE consulta (
 	id_consulta int primary key auto_increment,
@@ -24,3 +24,6 @@ CREATE TABLE consulta (
 );
 
 select * from usuario;
+INSERT INTO usuario (nome, email, cpf, celular, data_nasc, sexo, senha) 
+VALUES ('Teste', 'teste@example.com', '123.456.789-00', '(11) 91234-5678', '1990-01-01', 'M', 'senha1234');
+SELECT id_usuario FROM usuario WHERE email = 'teste@example.com' AND senha = 'senha1234';
