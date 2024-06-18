@@ -27,6 +27,11 @@ require_once "navBarLogin.php";
   </div>
 
   <div class="mb-3">
+    <label for="data_nasc" class="form-label">Data de Nascimento</label>
+    <input type="date" class="form-control" name="data_nasc" required id="data_nasc" placeholder="Insira sua data de nascimento">
+  </div>
+
+  <div class="mb-3">
     <label for="sexo" class="form-label">Informe seu sexo</label>
     <input list="sexoid" name="sexo" class="form-control" id="sexo" placeholder="Sexo">
     <datalist id="sexoid">

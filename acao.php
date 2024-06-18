@@ -5,54 +5,40 @@ require_once "Dao.php";
 
 
 
-//if (isset($_POST['submit'])){
+// Inicializar o objeto Dao
+$dao = new Dao();
+
+// Verificar se os dados do formulário de consulta foram enviados
+if (isset($_POST['nome'], $_POST['email'], $_POST['celular'], $_POST['datahora'], $_POST['especialidade'])) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $celular = $_POST['celular'];
     $datahora = $_POST['datahora'];
     $especialidade = $_POST['especialidade'];
 
-    $dao = new Dao();
     $dao->insertConsulta($nome, $email, $celular, $datahora, $especialidade);
+    echo "Consulta inserida com sucesso.";
+}
 
-
-    //cadastro    
+// Verificar se os dados do formulário de cadastro foram enviados
+elseif (isset($_POST['nome'], $_POST['email'], $_POST['cpf'], $_POST['celular'], $_POST['data_nasc'], $_POST['sexo'], $_POST['senha'])) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $cpf = $_POST['cpf'];
     $celular = $_POST['celular'];
+    $data_nasc = $_POST['data_nasc'];
     $sexo = $_POST['sexo'];
     $senha = $_POST['senha'];
-
-    $dao = new Dao();
-    $dao->insertLogin($nome, $email, $cpf, $celular, $data_nascimento, $sexo, $senha);
-//}
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // Recupera os dados do formulário
-//     $email = $_POST["email"];
-//     $senha = $_POST["senha"];
-//     var_dump($email, $senha);
+    $dao->insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo, $senha);
+    echo "Cadastro inserido com sucesso.";
     
-//     // Exibe os dados cadastrados
-//     echo "<h2>Dados Recebidos:</h2>";
-//     echo "<p class='text-danger'><strong>Email:</strong> $email</p>";
-//     echo "<p><strong>Senha:</strong> $senha</p>";
-// } else {
-//     echo "<p>Nenhum dado enviado.</p>";
-// }
+}
+
+else {
+    echo "Nenhum dado enviado ou dados incompletos.";
+}
 
 require_once "footer.php";
 
 ?>
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $celular = $_POST['celular'];
-    $data_nascimento = $_POST['data_nascimento'];
-    $sexo = $_POST['sexo'];
-    $senha = $_POST['senha'];
-
-    $dao = new Dao();
-    $dao->insertLogin($nome, $email, $cpf, $celular, $data_nascimento, $sexo, $senha);
