@@ -2,6 +2,10 @@
 
 require_once "header.php";
 require_once "navBarLogin.php";
+if (isset($_GET["logout"])){
+  session_start();
+  session_destroy();
+}
 ?>
 
 

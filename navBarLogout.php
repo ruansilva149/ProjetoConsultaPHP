@@ -32,6 +32,6 @@
     Menu
   </button>
   <ul class="dropdown-menu bg-danger">
-    <li><a class="dropdown-item" href="home.php">Logout</a></li>
+    <li><a class="dropdown-item" href="home.php?logout=1">Logout</a></li>
   </ul>
   </nav>

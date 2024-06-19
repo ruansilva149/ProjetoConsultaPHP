@@ -17,7 +17,7 @@ if (isset($_POST['nome'], $_POST['email'], $_POST['celular'], $_POST['datahora']
     $especialidade = $_POST['especialidade'];
 
     $dao->insertConsulta($nome, $email, $celular, $datahora, $especialidade);
-    echo "Consulta inserida com sucesso.";
+    echo "Consulta marcada com sucesso.";
 }
 
 // Verificar se os dados do formulário de cadastro foram enviados
@@ -30,7 +30,7 @@ elseif (isset($_POST['nome'], $_POST['email'], $_POST['cpf'], $_POST['celular'],
     $sexo = $_POST['sexo'];
     $senha = $_POST['senha'];
     $dao->insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo, $senha);
-    echo "Cadastro inserido com sucesso.";
+    echo "Cadastro realizado com sucesso.";
     
 }
 
