@@ -42,7 +42,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   <nav class="navbar bg-body-tertiary">
     <div class="input-group">
       <span class="input-group-text" id="basic-addon1"></span>
-      <input type="datetime-local" name="datahora" class="form-control" aria-label="datahora" aria-describedby="basic-addon1">
+      <input type="datetime-local" name="datahora" class="form-control" aria-label="datahora" placeholder="Escolha data e hora da sua consulta" aria-describedby="basic-addon1">
     </div>
   </nav>
 

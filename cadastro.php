@@ -2,6 +2,17 @@
 
 require_once "header.php";
 require_once "navBarLogin.php";
+
+// Inicia a sessão caso ainda não foi iniciada
+session_start();
+
+// Verifica se a variável de sessão que indica o login está definida
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // Se não estiver logado, redireciona para a página de login ou outra página de sua escolha
+    header('Location: login.php');
+    exit;
+}
+
 ?>
 
 

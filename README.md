@@ -11,23 +11,3 @@ Funcionalidades:
    Escolher hospital
    Área de atuação da consulta
   ----------------------------
--- Tabela Usuários
-CREATE TABLE usuario (
-    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
-    email VARCHAR(25) UNIQUE not null,
-    cpf int (11) UNIQUE not null,
-    celular int (11) not null,
-    senha VARCHAR(20)not null,
-    sexo ENUM('M', 'F', 'Outro' not null)
-);
-
-CREATE TABLE consulta (
-    nome_consulta varchar(50) not null,
-    email_consulta varchar(25) not null,
-    celular_consulta varchar(11) not null,
-    data_hora DATETIME not null,
-    especialidade ENUM('Clínico Geral', 'Dermatologista', 'Psicológo', 'Dentista', 'Urologista') not null
-);
-
-

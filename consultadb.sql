@@ -16,6 +16,7 @@ drop table usuario;
 
 CREATE TABLE consulta (
 	id_consulta int primary key auto_increment,
+    usuario_id
     nome_consulta varchar(50) not null,
     email_consulta varchar(25) not null,
     celular_consulta varchar(11) not null,

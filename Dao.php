@@ -17,16 +17,6 @@ public function __construct(){
 
 }
 
-// public function insertUsuario($nome, $email, $cpf, $senha, $data_nasc, $sexo){
-//     try{
-//         $stmt = $this->pdo->query("insert into usuario values ('$nome', '$email', '$cpf', '$senha', '$data_nasc', '$sexo')");
-//     } catch (PDOException $ex){
-//         echo "<pre>";
-//         echo $this->pdo->errorInfo()[2];
-
-//     }    
-// }
-
 public function insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo ,$senha){
     try{
         $stmt = $this->pdo->query("insert into usuario values (null, '$nome', '$email', '$cpf', '$celular',  '$data_nasc', '$sexo', '$senha')");
@@ -37,16 +27,17 @@ public function insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo 
     }    
 }
 
-public function listar(){
-    $stmt = $this->pdo->query("Select * from table consulta");
-while ($aluno = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    echo $aluno['usuario'] . " - " . $aluno['senha'] . "<br>";
+public function listarConsultas($usuario_id) {
+    $sql = "SELECT * FROM consulta WHERE usuario_id = :usuario_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([':usuario_id' => $usuario_id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-}
+
 
 public function insertConsulta ($nome, $email, $celular, $datahora, $especialidade){
     try{
-        $stmt = $this->pdo->query("insert into consulta values (null,'$nome', '$email', '$celular', '$datahora', '$especialidade')");
+        $stmt = $this->pdo->query("insert into consulta values (null, null,'$nome', '$email', '$celular', '$datahora', '$especialidade')");
         return $stmt;
     } 
     catch (PDOException $ex){
@@ -57,9 +48,7 @@ public function insertConsulta ($nome, $email, $celular, $datahora, $especialida
 }
 }
 
-// Função para validar as credenciais do usuário
 function validarCredenciais($email, $senha) {
-    // Conexão com o banco de dados - substitua com suas credenciais de conexão
     $dsn = 'mysql:host=localhost;dbname=consultadb';
     $username = 'root';
     $password = '';

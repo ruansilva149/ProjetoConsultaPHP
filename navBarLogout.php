@@ -18,7 +18,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="formAgenda.php">Agendar Consulta</a></li>
-            <li><a class="dropdown-item" href="#">Histórico de Consultas</a></li>
+            <li><a class="dropdown-item" href="consultas.php">Histórico de Consultas</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
