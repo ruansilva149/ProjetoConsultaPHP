@@ -1,21 +1,18 @@
 <?php
-require_once "Dao.php"; // Verifique se este arquivo contém lógica para autenticar o usuário
+require_once "Dao.php"; 
 session_start();
 
-// Verifica se o formulário foi submetido
+// Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Lógica para autenticar usuário (substitua com a lógica do seu Dao.php)
+    
     if (validarCredenciais($email, $senha)) {
-        // Autenticação bem-sucedida, define a variável de sessão
         $_SESSION['loggedin'] = true;
-        // Redireciona para a página desejada após o login (pode ser formAgenda.php)
         header('Location: formAgenda.php');
         exit;
     } else {
-        // Caso as credenciais não sejam válidas, você pode exibir uma mensagem de erro
         $erroLogin = "Credenciais inválidas. Por favor, tente novamente.";
     }
 }

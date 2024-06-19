@@ -13,18 +13,22 @@ CREATE TABLE usuario (
 );
 
 drop table usuario;
+drop table consulta;
 
 CREATE TABLE consulta (
 	id_consulta int primary key auto_increment,
-    usuario_id
+    usuario_id int,
     nome_consulta varchar(50) not null,
     email_consulta varchar(25) not null,
     celular_consulta varchar(11) not null,
     data_hora DATETIME not null,
-    especialidade ENUM('Clínico Geral', 'Dermatologista', 'Psicológo', 'Dentista', 'Urologista') not null
+    especialidade ENUM('Clínico Geral', 'Dermatologista', 'Psicológo', 'Dentista', 'Urologista') not null,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id_usuario)
 );
 
 select * from usuario;
+select * from consulta;
+
 INSERT INTO usuario (nome, email, cpf, celular, data_nasc, sexo, senha) 
 VALUES ('Teste', 'teste@example.com', '123.456.789-00', '(11) 91234-5678', '1990-01-01', 'M', 'senha1234');
 SELECT id_usuario FROM usuario WHERE email = 'teste@example.com' AND senha = 'senha1234';

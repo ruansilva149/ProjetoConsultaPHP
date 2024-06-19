@@ -69,7 +69,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </form>
 
 <script>
-  $(document).ready(function() {
+  $(document).ready(function() { //garante que seja executado apenas quando o HTMl carregar
     $('#cpf').mask('000.000.000-00');
     $('#cel').mask('(00) 00000-0000');
   });
