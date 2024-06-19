@@ -1,7 +1,7 @@
 <?php
 
 class Dao {
-    private $dsn = "mysql:host=192.168.8.10;dbname=grupo09php";
+    private $dsn = "mysql:host=localhost;dbname=grupo09php";
     private $username = "grupophp09";
     private $password = "php09";
     private $pdo; // Objeto PDO
@@ -51,12 +51,12 @@ public function insertConsulta ($nome, $email, $celular, $datahora, $especialida
 
     }    
 }
-}
+
 
 function validarCredenciais($email, $senha) {
-    $dsn = 'mysql:host=localhost;dbname=consultadb';
-    $username = 'root';
-    $password = '';
+    $dsn = 'mysql:host=localhost;dbname=grupo09php';
+    $username = 'grupophp09';
+    $password = 'php09';
 
     try {
         $pdo = new PDO($dsn, $username, $password);
