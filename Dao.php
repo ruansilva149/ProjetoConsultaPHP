@@ -62,28 +62,23 @@ function validarCredenciais($email, $senha) {
         $pdo = new PDO($dsn, $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Preparar a consulta SQL para verificar as credenciais
         $stmt = $pdo->prepare('SELECT id_usuario FROM usuario WHERE email = :email AND senha = :senha');
         $stmt->execute(array(
             ':email' => $email,
-            ':senha' => $senha // Sem criptografia
+            ':senha' => $senha 
         ));
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Depuração: Verifique o resultado da consulta
         var_dump($row); 
 
         if ($row) {
-            // Se encontrar o usuário com as credenciais válidas
             return true;
         } else {
-            // Se não encontrar o usuário ou as credenciais não forem válidas
             echo 'Credenciais inválidas.';
             return false;
         }
     } catch (PDOException $e) {
-        // Tratar erros de conexão ou consultas aqui
         echo 'Erro ao conectar ao banco de dados: ' . $e->getMessage();
         return false;
     }
