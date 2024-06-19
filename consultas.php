@@ -18,28 +18,15 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
 $dao = new Dao();
 ?>
 <div class="container">
-    <h1 class="my-4">Consultas Marcadas</h1>
-    <?php if ($nome): ?>
-        <p>Bem-vindo, <?php echo htmlspecialchars($nome); ?></p>
-    <?php endif; ?>
-    
+    <h1 class="my-4">Agendamento de Consultas</h1>
     <?php
-    if ($usuario_id !== null) {
-        $consultas = $dao->listarConsultas($usuario_id);
-
-        if ($consultas && count($consultas) > 0) {
-            echo '<table class="table table-striped mt-4">';
-            echo '<thead><tr><th>ID</th><th>Data da Consulta</th><th>Nome</th><th>Email</th><th>Celular</th><th>Especialidade</th></tr></thead>';
-            echo '<tbody>';
-            foreach ($consultas as $consulta) {
-                echo "<tr><td>{$consulta['id_consulta']}</td><td>{$consulta['data_hora']}</td><td>{$consulta['nome_consulta']}</td><td>{$consulta['email_consulta']}</td><td>{$consulta['celular_consulta']}</td><td>{$consulta['especialidade']}</td></tr>";
-            }
-            echo '</tbody></table>';
-        } else {
-            echo '<div class="alert alert-warning mt-4" role="alert">Nenhuma consulta encontrada.</div>';
-        }
-    } else {
-        echo '<div class="alert alert-danger mt-4" role="alert">Erro ao obter o ID do usuário.</div>';
+    // Exibe mensagens de sucesso ou erro, se existirem
+    if (isset($_SESSION['success_message'])) {
+        echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+        unset($_SESSION['success_message']); // Limpa a mensagem de sucesso da sessão
+    } elseif (isset($_SESSION['error_message'])) {
+        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_message'] . '</div>';
+        unset($_SESSION['error_message']); // Limpa a mensagem de erro da sessão
     }
     ?>
 </div>
