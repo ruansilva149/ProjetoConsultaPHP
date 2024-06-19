@@ -1,21 +1,26 @@
 <?php
 
-class Dao{
+class Dao {
+    private $dsn = "mysql:host=192.168.8.10;dbname=grupo09php";
+    private $username = "grupophp09";
+    private $password = "php09";
+    private $pdo; // Objeto PDO
 
-//private $dsn = "mysql:host=192.168.8.10;dbname=grupo09php";
-private $username = "grupophp09";
-private $password = "php09";
-private $pdo;//
+    public function __construct() {
+        try {
+            $this->pdo = new PDO($this->dsn, $this->username, $this->password);
 
+        } catch (PDOException $e) {
+
+            echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
+            die(); 
+        }
+    }
 // private $dsn = "mysql:host=localhost;dbname=consultadb";
 // private $username = "root";
 // private $password = "";
 // private $pdo;
 
-public function __construct(){
-    $this->pdo = new PDO($this->dsn, $this->username, $this->password);
-
-}
 
 public function insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo ,$senha){
     try{

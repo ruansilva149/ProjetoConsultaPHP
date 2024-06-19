@@ -30,5 +30,5 @@ select * from usuario;
 select * from consulta;
 
 INSERT INTO usuario (nome, email, cpf, celular, data_nasc, sexo, senha) 
-VALUES ('Teste', 'teste@example.com', '123.456.789-00', '(11) 91234-5678', '1990-01-01', 'M', 'senha1234');
-SELECT id_usuario FROM usuario WHERE email = 'teste@example.com' AND senha = 'senha1234';
+VALUES ('Teste', 'teste@exemplo.com', '123.456.789-00', '(11) 91234-5678', '1990-01-01', 'M', 'senha1234');
+SELECT id_usuario FROM usuario WHERE email = 'teste@exemplo.com' AND senha = 'senha1234';
