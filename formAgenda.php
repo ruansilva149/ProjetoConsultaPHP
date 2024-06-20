@@ -1,17 +1,19 @@
 <?php
-  require_once "header.php";
-  require_once "navBarLogout.php";
+
 
 // Inicia a sessão (se ainda não estiver iniciada)
 session_start();
 
-// Verifica se a variável de sessão que indica o login está definida
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // Se não estiver logado, redireciona para a página de login ou outra página de sua escolha
+if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) 
+{
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
     header('Location: login.php');
-    exit;
+
 }
 
+require_once "header.php";
+require_once "navBarLogout.php";
 ?>
 
 <?php //inicio formulario>
