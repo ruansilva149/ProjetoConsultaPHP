@@ -22,24 +22,13 @@ class Dao
         }
     }
 
-    public function insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo, $senha)
-    {
-        try {
-            $sql = "INSERT INTO usuario (nome, email, cpf, celular, data_nasc, sexo, senha) 
-                    VALUES (:nome, :email, :cpf, :celular, :data_nasc, :sexo, :senha)";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                ':nome' => $nome,
-                ':email' => $email,
-                ':cpf' => $cpf,
-                ':celular' => $celular,
-                ':data_nasc' => $data_nasc,
-                ':sexo' => $sexo,
-                ':senha' => $senha
-            ]);
-        } catch (PDOException $ex) {
-            echo "Erro ao inserir cadastro: " . $ex->getMessage();
-        }
+    public function insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo ,$senha){
+        try{
+            $stmt = $this->pdo->query("insert into usuario values (null, '$nome', '$email', '$cpf', '$celular',  '$data_nasc', '$sexo', '$senha')");
+        } catch (PDOException $ex){
+            echo "<pre>";
+            echo $this->pdo->errorInfo()[2];
+        }    
     }
 
     public function listarConsultas($usuario_id)
@@ -55,45 +44,45 @@ class Dao
         }
     }
 
-    public function insertConsulta($nome, $email, $celular, $datahora, $especialidade)
-    {
-        try {
-            $sql = "INSERT INTO consulta (nome, email, celular, datahora, especialidade) 
-                    VALUES (:nome, :email, :celular, :datahora, :especialidade)";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                ':nome' => $nome,
-                ':email' => $email,
-                ':celular' => $celular,
-                ':datahora' => $datahora,
-                ':especialidade' => $especialidade
-            ]);
-        } catch (PDOException $ex) {
-            echo "Erro ao inserir consulta: " . $ex->getMessage();
-        }
-    }
-
-    public function validarCredenciais($email, $senha)
-    {
-        try {
-            $sql = "SELECT id_usuario FROM usuario WHERE email = :email AND senha = :senha";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                ':email' => $email,
-                ':senha' => $senha
-            ]);
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($row) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (PDOException $e) {
-            echo 'Erro ao validar credenciais: ' . $e->getMessage();
-            return false;
-        }
-    }
+public function insertConsulta ($nome, $email, $celular, $datahora, $especialidade){
+    try{
+        $stmt = $this->pdo->query("insert into consulta values (null,'$nome', '$email', '$celular', '$datahora', '$especialidade')");
+        $stmt = $this->pdo->query("insert into consulta values (null, null,'$nome', '$email', '$celular', '$datahora', '$especialidade')");
+        return $stmt;
+    } 
+    catch (PDOException $ex){
+        echo "<pre>";
+        echo $this->pdo->errorInfo()[2];
+    }    
 }
 
+public function validarCredenciais($email, $senha)
+{
+    try {
+        $sql = "SELECT id_usuario FROM usuario WHERE email = :email AND senha = :senha";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':email' => $email,
+            ':senha' => $senha
+        ]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Depuração: Verifique o resultado da consulta
+        var_dump($row);
+
+        if ($row) {
+            // Se encontrar o usuário com as credenciais válidas
+            return true;
+        } else {
+            // Se não encontrar o usuário ou as credenciais não forem válidas
+            echo 'Credenciais inválidas.';
+            return false;
+        }
+    } catch (PDOException $e) {
+        // Tratar erros de conexão ou consultas aqui
+        echo 'Erro ao validar credenciais: ' . $e->getMessage();
+        return false;
+    }
+}
+}
 ?>
