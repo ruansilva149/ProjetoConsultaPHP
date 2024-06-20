@@ -6,13 +6,13 @@ class Dao
 
     // // Configurações de conexão
 
-    // private $dsn = "mysql:host=localhost;dbname=grupo09php";
-    // private $username = "grupophp09";
-    // private $password = "php09";
+    private $dsn = "mysql:host=localhost;dbname=grupo09php";
+    private $username = "grupophp09";
+    private $password = "php09";
 
-    private $dsn = "mysql:host=localhost;dbname=consultadb";
-    private $username = "root";
-    private $password = "";
+    // private $dsn = "mysql:host=localhost;dbname=consultadb";
+    // private $username = "root";
+    // private $password = "";
 
 
     public function __construct()
