@@ -2,13 +2,15 @@
 require_once "Dao.php"; 
 session_start();
 
+$dao = new Dao(); // Cria uma instância do objeto Dao
+
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Valida as credenciais usando uma função (supondo que validarCredenciais está definida em Dao.php ou em outro arquivo incluído)
-    if (validarCredenciais($email, $senha)) {
+    // Valida as credenciais usando o método da classe Dao
+    if ($dao->validarCredenciais($email, $senha)) {
         $_SESSION['loggedin'] = true;
         header('Location: formAgenda.php');
         exit;
