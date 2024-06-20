@@ -1,19 +1,20 @@
-<?php
-require_once 'header.php';
-require_once 'Dao.php';
-require_once 'navBarLogout.php';
+<!-- <?php
 
 session_start();
-var_dump($_SESSION);
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // Se não estiver logado, redireciona para a página de login ou outra página de sua escolha
-    header('Location: login.php');
-    exit;
-}
+require_once 'Dao.php';
 
-// Verificar se as variáveis de sessão estão definidas e atribui a variáveis locais
-$nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : '';
-$usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) 
+{
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
+    header('Location: login.php');
+
+}
+require_once 'header.php'; 
+require_once 'navBarLogout.php';
+require_once 'Dao.php';
+
+$usuario = $_SESSION['email'];
 
 $dao = new Dao();
 ?>
@@ -32,4 +33,4 @@ $dao = new Dao();
 
 <?php
 require_once 'footer.php';
-?>
+?> -->

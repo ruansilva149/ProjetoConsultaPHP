@@ -2,27 +2,26 @@
 require_once "Dao.php"; 
 session_start();
 
-// Verifica se o formulário foi enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['nome'], $_POST['email'], $_POST['cpf'], $_POST['celular'], $_POST['data_nasc'], $_POST['sexo'], $_POST['senha'])) {
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $cpf = $_POST['cpf'];
-        $celular = $_POST['celular'];
-        $data_nasc = $_POST['data_nasc'];
-        $sexo = $_POST['sexo'];
-        $senha = $_POST['senha'];
+$dao = new Dao;
 
-        // Insere o cadastro no banco de dados
-        if ($dao->insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo, $senha)) {
-            // Define uma mensagem de sucesso na sessão
-            $_SESSION['success_message'] = "Cadastro realizado com sucesso.";
-            header('Location: login.php');
-            exit;
-        } else {
-            // Se houver erro ao inserir cadastro, define uma mensagem de erro na sessão
-            $_SESSION['error_message'] = "Erro ao cadastrar usuário. Por favor, ajuste os dados e tente novamente.";
-        }
+if (isset($_POST['submit'])) {
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+    $celular = $_POST['celular'];
+    $data_nasc = $_POST['data_nasc'];
+    $sexo = $_POST['sexo'];
+    $senha = $_POST['senha'];
+
+    if (!empty($nome) && !empty($email) && !empty($cpf) && !empty($celular) && !empty($data_nasc) && !empty($sexo) && !empty($senha)) {
+
+        $dao->insertCadastro($nome, $email, $cpf, $celular, $data_nasc, $sexo, $senha);
+        
+        // Define uma mensagem de sucesso na sessão
+        $_SESSION['success_message'] = "Cadastro realizado com sucesso.";
+        header('Location: login.php');
+        exit;
     } else {
         // Se algum campo estiver faltando, define uma mensagem de erro na sessão
         $_SESSION['error_message'] = "Por favor, preencha todos os campos do formulário de cadastro.";
@@ -34,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php require_once "navBarLogin.php"; ?>
 
 <div class="container mt-5">
-    <form class="px-4 py-3" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form class="px-4 py-3" method="POST" onsubmit="return validarFormulario()"action="testCadastro.php">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome Completo</label>
             <input type="text" class="form-control" required name="nome" id="nome" placeholder="Digite aqui seu nome completo">
@@ -90,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (senha !== confirmacaoSenha) {
       mensagem.innerText = "As senhas não são iguais.";
-      return false; 
+      return false;
     }
 
     if (senha.length < 8) {

@@ -1,10 +1,11 @@
 <?php
 
 require_once "header.php";
-require_once "navBarLogin.php";
-if (isset($_GET["logout"])){
-  session_start();
-  session_destroy();
+require_once "navBarLogout.php";
+if ((isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) 
+{
+    header('Location: login.php');
+
 }
 ?>
 
